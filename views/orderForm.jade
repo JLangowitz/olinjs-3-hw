@@ -19,5 +19,5 @@ block content
 		each ingredient in ingredients
 			p
 				input(class='ingredientBox', type='checkbox', name=ingredient.name)
-				| #{ingredient.name}
+				| #{ingredient.name} add #{ingredient.cost} dollars
 		input(type='button', name='submit', value='submit', onclick='submitOrder()')
