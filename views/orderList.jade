@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    script
+        function completeOrder(id) {
+            $.post('./complete',{id:id});
+        }
+    h1=title
+    form()
+        p Current Orders
+        each order in orders
+            p
+                | #{order.customerName}
+                each ingredient in order.ingredients
+                    | , #{ingredient.name}
+                input(type='button', name='submit', value='completed', onclick='completeOrder("#{order.id}")')

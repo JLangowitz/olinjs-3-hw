@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	script
+		function submitOrder() {
+			var checkboxes=$('.ingredientBox:checked');
+			var ingredients=[];
+			var customerName=$('input[name="customerName"]').val();
+			checkboxes.each(function(index, box){
+				ingredients.push(box.name);
+			});
+			$.post('./create', {ingredients:ingredients, customerName:customerName});
+
+		}
+	h1=title
+	form(id='form')
+		p Name:
+			input(name='customerName')
+		each ingredient in ingredients
+			p
+				input(class='ingredientBox', type='checkbox', name=ingredient.name)
+				| #{ingredient.name}
+		input(type='button', name='submit', value='submit', onclick='submitOrder()')
