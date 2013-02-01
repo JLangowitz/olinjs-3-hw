@@ -4,12 +4,13 @@ block content
     script
         function completeOrder(id) {
             $.post('./complete',{id:id});
+            $('p[id=' + id + "]").remove();
         }
     h1=title
     form()
         p Current Orders
         each order in orders
-            p
+            p(id="#{order.id}")
                 | #{order.customerName}
                 each ingredient in order.ingredients
                     | , #{ingredient.name}

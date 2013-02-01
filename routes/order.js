@@ -15,7 +15,6 @@ exports.complete = function(req, res){
 	order.remove({_id:req.body.id}).exec(function(err){
 		if (err)
 			return console.log('error', err);
-		console.log('things');
 		return console.log('removed');
 	})
 };

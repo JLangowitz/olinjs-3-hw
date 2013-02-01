@@ -10,7 +10,7 @@ block content
 				ingredients.push(box.name);
 			});
 			$.post('./create', {ingredients:ingredients, customerName:customerName});
-
+			$("#form")[0].reset();
 		}
 	h1=title
 	form(id='form')
